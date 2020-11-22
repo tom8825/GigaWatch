@@ -1,0 +1,33 @@
+<!-- message received -->
+<div class="d-flex justify-content-start mb-4" *ngIf="messageType == 1">
+    <div class="img_cont_msg">
+        <img src="https://robohash.org/{{messageUserName}}" class="rounded-circle user_img_msg">
+    </div>
+    <div class="msg_cotainer">
+        {{messageContent}}
+        <span class="msg_time"><span>{{messageUserName}}</span> - {{messageDate}}</span>
+    </div>
+</div>
+
+<!-- message sent -->
+<div class="d-flex justify-content-end mb-4" *ngIf="messageType == 0">
+    <div class="msg_cotainer_send">
+        {{messageContent}}
+        <span class="msg_time_send"><span>{{messageUserName}}</span> -
+            {{messageDate}}</span>
+    </div>
+    <div class="img_cont_msg">
+        <img src="https://robohash.org/{{messageUserName}}" class="rounded-circle user_img_msg">
+    </div>
+</div>
+
+<!-- welcome message -->
+<div class="d-flex justify-content-end mb-4" *ngIf="messageType == 'welcome'">
+    <div class="img_cont_msg">
+        <img src="../../assets/admin.webp" class="rounded-circle user_img_msg">
+    </div>
+    <div class="msg_cotainer">
+        {{content}}
+        <span class="msg_time"><span>Admin</span></span>
+    </div>
+</div>

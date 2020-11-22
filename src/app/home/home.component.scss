@@ -1,0 +1,194 @@
+div.card.v4 {
+    width: 100%;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+div.card.v4.tight:first-of-type {
+    margin-top: 0;
+}
+div.card.v4.tight {
+    flex-wrap: wrap;
+}
+
+div.card.v4.tight div.image {
+    min-width: 94px;
+    width: 94px;
+    height: 141px;
+}
+
+div.card.v4.tight > div.wrapper {
+    display: flex;
+    max-width: calc(100vw - 82px);
+}
+
+div.card.v4.tight div.image {
+    min-width: 94px;
+    width: 94px;
+    height: 141px;
+}
+div.card.v4 div.image {
+    width: calc(200px / 1.5);
+    min-width: calc(200px / 1.5);
+    height: 200px;
+    box-sizing: border-box;
+}
+
+div.card.v4.tight div.image div.poster {
+    width: 100%;
+    height: 100%;
+}
+div.card.v4 div.image div.poster {
+    width: 100%;
+    height: 100%;
+}
+
+div.card.v4.tight div.image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+section.main_content.search_results h2, section.main_content.search_results a {
+    color: #000;
+}
+
+div.card.v4.tight div.image img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+div.card.v4 div.image img {
+    width: calc(200px / 1.5);
+    min-width: calc(200px / 1.5);
+    height: 200px;
+    display: block;
+}
+img[data-src] {
+    min-width: 1px;
+    min-height: 1px;
+}
+img, a img {
+    outline: none;
+}
+body * {
+    box-sizing: border-box;
+}
+img {
+    border: 0;
+}
+
+div.card.v4.tight div.details {
+    max-width: calc(1300px - 82px - 94px);
+}
+div.card.v4 div.details {
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+div.card.v4 div.details div.title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    overflow: hidden;
+}
+
+div.card.v4.tight div.details div.overview {
+    height: auto;
+}
+div.card.v4 div.details div.overview {
+    margin-top: 20px;
+}
+
+div.card.v4 div.details div.title a {
+    width: 100%;
+    display: block;
+}
+section.main_content.search_results h2, section.main_content.search_results a {
+    color: #000;
+}
+
+div.card.v4 div.details div.title span.release_date {
+    white-space: nowrap;
+    color: #999;
+}
+body * {
+    box-sizing: border-box;
+}
+
+.card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(227,227,227, 1);
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+div.card.v4 div.details div.title h2 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.film-card, .series-card{
+    border: none !important;
+}
+
+.movie-search-container{
+    height: 690px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(200,200,200,1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color:rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(90,90,90,0.7);
+}
+
+.home-btn{
+    font-size: 32px;
+    line-height: 38px;
+    color: lightgray;
+}
+
+.home-btn-container{
+    margin-left: 10px;
+    cursor: pointer;
+
+    :hover{
+        color:#403475;
+    }
+}
+
+input[type="range" i]{
+    color: -internal-light-dark(#403475, rgb(255, 255, 255)) !important;
+}
+
+.searchInputBtn button{
+    background-color: #403475;
+    border-color: #241848;
+}

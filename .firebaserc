@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "stylefinder-4f8cd": {
+      "hosting": {
+        "WatchParty": [
+          "stylefinder-4f8cd"
+        ]
+      }
+    }
+  }
+}

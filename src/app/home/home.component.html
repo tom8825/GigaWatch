@@ -1,0 +1,115 @@
+<div class="container d-flex mt-5">
+    <div class="col-md-4 movie-search-container">
+        <div class="input-group mb-3">
+            <input id="searchTerm" class="form-control" type="text" placeholder="Search">
+            <div class="input-group-append searchInputBtn">
+                <button class="btn btn-primary" (click)="getSearchResults()">Search</button>
+            </div>
+            <div class="home-btn-container" (click)="homeBtnClick()" style="cursor: pointer;"><i
+                    class="fas fa-home home-btn"></i></div>
+        </div>
+        <div id="searchResults">
+            <div *ngFor="let result of resultList" id="{{result.imdbID}}" class="card v4 tight film-card">
+                <div class="wrapper">
+                    <div class="image">
+                        <div class="poster">
+                            <a class="result" href="#">
+                                <img class="poster lazyload lazyloaded" data-src="{{result.Poster}}"
+                                    data-srcset="{{result.Poster}} 1x, {{result.Poster}} 2x" alt="The Flash"
+                                    src="{{result.Poster}}" srcset="{{result.Poster}} 1x, {{result.Poster}} 2x"
+                                    data-loaded="true">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="wrapper">
+                            <div class="title">
+                                <a class="result" (click)="getMovieSeries(result.imdbID)">
+                                    <h2>{{result.Title}}</h2>
+                                </a>
+                                <span class="release_date">{{result.Year}}</span>
+                            </div>
+                            <div *ngIf="resultList[0].Type == 'series' && seriesList.length != 0">
+                                <br>
+                                <div>Seasons</div>
+                                <span *ngFor="let number of seriesList">
+                                    <a (click)="setActiveSeason(number)">{{number}}</a>&nbsp;
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="activeMovie != null" class="card v4 tight film-card">
+                <div class="wrapper d-flex flex-column p-3">
+                    <div>
+                        <h4>{{activeMovie.Title}}</h4>
+                    </div>
+                    <div>{{activeMovie.Plot}}</div><br>
+                    <div>Released: {{activeMovie.Released}}</div>
+                    <div>Runtime: {{activeMovie.Runtime}}</div>
+                    <div>IMDb Rating: {{activeMovie.imdbRating}}</div>
+                    <div><a href="https://www.imdb.com/title/{{activeMovie.imdbID}}" target="_blank">IMDb Link</a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="activeSeason != null && activeEpisode == null" class="card v4 tight">
+                <div class="wrapper d-flex flex-column p-3">
+                    <div *ngFor="let episode of activeSeason">
+                        <a (click)="setActiveEpisode(episode)">
+                            {{episode.Episode}}. {{episode.Title}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="activeEpisode != null" class="card v4 tight series-card">
+                <div class="wrapper d-flex flex-column p-3">
+                    <div>
+                        <h4>{{activeEpisode.Title}}</h4>
+                    </div>
+                    <div>{{activeEpisode.Plot}}</div><br>
+                    <div>Released: {{activeEpisode.Released}}</div>
+                    <div>Runtime: {{activeEpisode.Runtime}}</div>
+                    <div>IMDb Rating: {{activeEpisode.imdbRating}}</div>
+                    <div><a href="https://www.imdb.com/title/{{activeEpisode.imdbID}}" target="_blank">IMDb Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="activeMovie == null &&  activeSeries == null">
+            <div>
+                <h4 style="color:white">Popular</h4>
+            </div>
+            <div *ngFor="let result of popularList" id="{{result.imdbID}}" class="card v4 tight film-card">
+                <div class="wrapper">
+                    <div class="image">
+                        <div class="poster">
+                            <a class="result" href="#">
+                                <img class="poster lazyload lazyloaded" data-src="{{result.poster}}"
+                                    data-srcset="{{result.poster}} 1x, {{result.poster}} 2x" alt="The Flash"
+                                    src="{{result.poster}}" srcset="{{result.poster}} 1x, {{result.poster}} 2x"
+                                    data-loaded="true">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="wrapper">
+                            <div class="title">
+                                <a class="result" (click)="getMovieSeries(result.imdbID)">
+                                    <h2>{{result.title}}</h2>
+                                </a>
+                                <span class="release_date">{{result.subtitle}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-8">
+        <app-chatbox></app-chatbox>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="input-group mb-3">
+    <input id="durationSlider" class="form-control-range" type="range" min="0" max="100" value="0" step="0.01"
+        [(ngModel)]="sliderValue">
+</div>
+
+<div class="container-fluid h-100">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-xl-12 chat">
+            <div class="card">
+
+                <!-- user name and icon -->
+                <div class="card-header msg_head">
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img src="https://robohash.org/{{userName}}" class="rounded-circle user_img">
+                            <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                            <span>{{userName}}</span>
+                        </div>
+                        <div class="video_cam">
+                            <div style="color:white;">{{timer}}</div>
+                            <span *ngIf="play == false || play == null || play == ''"><i class="fas fa-play"
+                                    (click)="setMessagesPlayChat()"></i></span>
+                            <span *ngIf="play == true" (click)="pause()"><i class="fas fa-pause"></i></span>
+                            <span (click)="restart()"><i class="fas fa-redo-alt"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- messages -->
+                <div class="card-body msg_card_body" id="msg_card_body" [attr.disabled]="play == false">
+
+                    <app-message [messageType]="'welcome'" *ngIf="messages == null || messages == ''"></app-message>
+
+                    <app-message *ngFor="let message of adminMessages" [messageDate]="message.messageDate"
+                        [messageContent]="message.messageContent" [messageUserName]="message.messageUserName"
+                        [messageShowTime]="message.messageShowTime" [messageType]="message.messageType"></app-message>
+
+                    <app-message *ngFor="let message of chatMessages" [messageDate]="message.messageDate"
+                        [messageContent]="message.messageContent" [messageUserName]="message.messageUserName"
+                        [messageShowTime]="message.messageShowTime" [messageType]="message.messageType"></app-message>
+
+
+
+                </div>
+
+                <!--user input-->
+                <div class="card-footer" [attr.disabled]="play == false">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                        </div>
+                        <textarea name="" id="message_input" class="form-control type_msg"
+                            placeholder="Type your message..." [disabled]="play == false || play == null"></textarea>
+                        <div class="input-group-append">
+                            <span class="input-group-text send_btn" (click)="sendUserMessage()"><i
+                                    class="fas fa-location-arrow"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
