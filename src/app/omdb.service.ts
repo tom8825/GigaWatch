@@ -11,7 +11,7 @@ export class OmdbService {
 
   constructor(private _http: HttpClient,) {
     this.omdbKey = environment.OMDB_KEY;
-    this.omdbUrl = "http://www.omdbapi.com/?apikey=" + this.omdbKey + "&plot=full";
+    this.omdbUrl = "https://www.omdbapi.com/?apikey=" + this.omdbKey + "&plot=full";
   }
 
   getSearchResults(searchTerm) {
