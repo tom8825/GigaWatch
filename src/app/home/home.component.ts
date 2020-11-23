@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     this.activeSeason = null;
     this.seriesList = [];
     this._omdbService.getMovieSeries(id).subscribe(data => {
-      //console.log(data);
+      console.log(data);
       //this.resultList = data["Search"];
       if (data["Type"] == "series") {
         //this.seriesList = Array(data["totalSeasons"]).fill(0).map((x, i) => i);
@@ -67,6 +67,12 @@ export class HomeComponent implements OnInit {
         }
         this.activeSeries = data;
         this.activeDuration = parseInt(data["Runtime"].toString().split(" ")[0]) * 60;
+      } else if (data["Type"] == "episode") {
+        this._omdbService.getMovieSeries(data["seriesID"]).subscribe(seriesData => {
+          this.activeSeries = seriesData;
+          console.log("series: ", seriesData);
+          this.setActiveEpisode(data);
+        })
       } else {
         this.activeMovie = data;
         console.log(data);
